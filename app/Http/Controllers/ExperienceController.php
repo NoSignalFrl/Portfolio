@@ -26,7 +26,7 @@ class ExperienceController extends Controller
      */
     public function create()
     {
-        $users = User::all(); // pour choisir à quel user appartient l’expérience
+        $users = User::all(); // pour choisir à quel utilisateur appartient l’expérience
         return view('experiences.create', compact('users'));
     }
 
