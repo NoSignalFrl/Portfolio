@@ -24,8 +24,14 @@ class UserSeeder extends Seeder
             $user->email = $faker->unique()->safeEmail();
             $user->password = bcrypt('123456');
             $user->name = $faker->name();
-            $user->birthday = $faker->date();
             $user->phone = $faker->phoneNumber();
+            $user->postal_code = $faker->postcode();
+            $user->languages = implode(', ', $faker->randomElements(
+                ['French', 'English', 'Arabic', 'Spanish'],
+                // On ajoute entre 1 et trois langues
+                rand(1, 3)
+            ));
+            $user->birthday = $faker->date();
             $user->save();
         }
     }
