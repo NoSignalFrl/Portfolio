@@ -5,8 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use App\Models\User;
-use App\Models\Skill;
-use App\Models\Experience;
 
 
 class UserSeeder extends Seeder
@@ -21,13 +19,19 @@ class UserSeeder extends Seeder
         //
         $faker = Factory::create();
 
-        for ($i = 0; $i < 10; $i++){
+        for ($i = 0; $i < 10; $i++) {
             $user = new User;
-            $user->email = $faker->unique()->email;
+            $user->email = $faker->unique()->safeEmail();
             $user->password = bcrypt('123456');
-            $user->name = $faker->lastName;
-            // $user->prenoms = $faker->firstName;
-            $user->phone = $faker->
+            $user->name = $faker->name();
+            $user->phone = $faker->phoneNumber();
+            $user->postal_code = $faker->postcode();
+            $user->languages = implode(', ', $faker->randomElements(
+                ['French', 'English', 'Arabic', 'Spanish'],
+                // On ajoute entre 1 et trois langues
+                rand(1, 3)
+            ));
+            $user->birthday = $faker->date();
             $user->save();
         }
     }

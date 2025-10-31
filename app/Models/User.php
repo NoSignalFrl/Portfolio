@@ -18,9 +18,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
+        'name',
+        'phone',
+        'postal_code',
+        'languages',
+        'birthday',
     ];
 
     /**
@@ -41,4 +45,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Relations Eloquent
+     */
+    // 🔹 Un user a plusieurs compétences
+    public function skills()
+    {
+        return $this->hasMany(Skill::class);
+    }
+
+    // 🔹 Un user a plusieurs expériences
+    public function experiences()
+    {
+        return $this->hasMany(Experience::class);
+    }
 }
