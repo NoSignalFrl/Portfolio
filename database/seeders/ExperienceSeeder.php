@@ -27,11 +27,11 @@ class ExperienceSeeder extends Seeder
             for ($i = 0; $i < rand(1, 3); $i++) {
                 $experience = new Experience();
                 $experience->position = $faker->jobTitle();
-                $experience->company = $faker->company();
                 $experience->start_date = $faker->dateTimeBetween('-10 years', '-2 years');
                 $experience->end_date = $faker->dateTimeBetween('-2 years', 'now');
                 $experience->city = $faker->city();
                 $experience->address = $faker->address();
+                $experience->company = $faker->company();
                 $experience->description = $faker->sentence(10);
                 $experience->user_id = $user->id;
                 $experience->save();
