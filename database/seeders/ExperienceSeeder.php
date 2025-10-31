@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use App\Models\Experience;
 
 class ExperienceSeeder extends Seeder
 {

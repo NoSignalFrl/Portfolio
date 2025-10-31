@@ -5,8 +5,6 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Faker\Factory;
 use App\Models\User;
-use App\Models\Skill;
-use App\Models\Experience;
 
 
 class UserSeeder extends Seeder
