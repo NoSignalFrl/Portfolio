@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Faker\Factory;
 use App\Models\User;
 use App\Models\Skill;
 

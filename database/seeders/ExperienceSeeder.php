@@ -32,7 +32,6 @@ class ExperienceSeeder extends Seeder
                 $experience->end_date = $faker->dateTimeBetween('-2 years', 'now');
                 $experience->city = $faker->city();
                 $experience->address = $faker->address();
-                $experience->postal_code = $faker->postcode();
                 $experience->description = $faker->sentence(10);
                 $experience->user_id = $user->id;
                 $experience->save();
